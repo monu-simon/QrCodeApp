@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.app-title {
+    font-weight: 900;
+    font-style: normal;
+    height: max-content;
+    font-size: x-large;
+    align-self: center;
+    cursor: pointer;
+}
+
+.nav-link-item {
+    text-decoration: none;
+    transition: 0.7s ease;
+    padding: 0.5em 0.5em;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+li {
+    margin-left: 1em;
+}
+
+.nav-link-item:hover {
+    background-color: #495057;
+    color: white;
+}
+
+@media(max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+    .app-title {
+        align-self: center;
+    }
+    .navs {
+        align-self: center;
+    }
+}

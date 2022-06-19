@@ -7,6 +7,7 @@ import { HeaderComponent } from './ui/header/header.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './ui/home/home.component';
 import { QrCodeModule } from 'ng-qrcode';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { QrCodeModule } from 'ng-qrcode';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    QrCodeModule
+    QrCodeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

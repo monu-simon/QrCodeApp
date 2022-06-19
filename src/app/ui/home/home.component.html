@@ -1,10 +1,13 @@
 <div class="content">
     <div class="qrcode">
         <h2>Preview of your QRCODE</h2>
-        <qr-code value="https://www.facebook.com" size="300" errorCorrectionLevel="M"></qr-code>
+        <qr-code #qrcode [value]='url' size="300" errorCorrectionLevel="M"></qr-code>
+
     </div>
     <div class="form">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis fugiat possimus consequatur adipisci maxime inventore placeat deserunt, debitis est voluptate dolores iste. Dolorem, pariatur nam. Recusandae quam voluptatibus aperiam in, distinctio ab officia
-        quo id nam sunt quaerat amet cum atque officiis mollitia iptate nesciunt ab, vel quam corrupti tempora sapiente accusantium animi, officia ipsa? Harum amet eveniet libero quidem deleniti nisi sequi ut distinctio tempore laboriosam.
+        <div class="inputcontent">
+            <label>Enter or paste Website URL</label><br>
+            <input placeholder="www.Website.com" name="url" [(ngModel)]="url">
+        </div>
     </div>
 </div>

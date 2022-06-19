@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  url!: string;
+  url: string ='https://www.google.com';
   constructor() { }
 
   ngOnInit(): void {

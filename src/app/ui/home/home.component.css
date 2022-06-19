@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    justify-content: space-around;
+    margin: 5em auto;
+}
+
+.qrcode {
+    padding: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 0 #0003, 0 0 2px #0003;
+    margin: 2em auto;
+}
+
+.form {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    width: 50%;
+    background-color: aliceblue;
+    box-shadow: 0 0 #0003, 0 0 2px #0003;
+    margin: 2em auto;
+}
+
+@media(max-width: 700px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}

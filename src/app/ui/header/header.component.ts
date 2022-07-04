@@ -10,6 +10,12 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const toggleButton = document.getElementsByClassName('toggle-button')[0];
+    const navs = document.getElementsByClassName('navs')[0];
+
+    toggleButton.addEventListener('click', () => {
+      navs.classList.toggle('active')
+    })
   }
 
 }

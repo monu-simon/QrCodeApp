@@ -5,6 +5,23 @@
     justify-content: space-between;
 }
 
+.toggle-button {
+    position: absolute;
+    top: 1.75rem;
+    right: 2rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #6c757d;
+}
+
 .app-title {
     font-weight: 900;
     font-style: normal;
@@ -34,13 +51,28 @@ li {
 }
 
 @media(max-width: 700px) {
-    .container {
-        flex-direction: column;
-    }
     .app-title {
-        align-self: center;
+        align-self: flex-start;
     }
     .navs {
         align-self: center;
+        display: none;
+    }
+    ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    li {
+        margin-bottom: 0.5rem;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .toggle-button {
+        display: flex;
+    }
+    .navs.active {
+        display: flex;
+        font-size: 1.5rem;
     }
 }

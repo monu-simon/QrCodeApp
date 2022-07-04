@@ -1,8 +1,9 @@
 <div class="content">
     <div class="qrcode">
-        <h2>Preview of your QRCODE</h2>
+        <h3>Preview of your QRCODE</h3>
         <qr-code #qrcode [value]='url' size="300" errorCorrectionLevel="M"></qr-code>
-        <button (click)="download()">Download</button>
+        <button (click)="download()" type="button" class="btn btn-primary">Download</button>
+
     </div>
 
     <div class="form">

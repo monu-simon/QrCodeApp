@@ -1,7 +1,7 @@
 <div class="content">
     <div class="qrcode">
         <h3>Preview of your QRCODE</h3>
-        <qr-code #qrcode [value]='url' size="300" errorCorrectionLevel="M"></qr-code>
+        <qr-code #qrcode [value]='url' size="300" [errorCorrectionLevel]="errorLevel"></qr-code>
         <button (click)="download()" type="button" class="btn btn-primary">Download</button>
 
     </div>
@@ -11,5 +11,10 @@
             <label>Enter or paste Website URL</label><br>
             <input placeholder="www.Website.com" name="url" [(ngModel)]="url">
         </div>
+        <label>Error Correction Level</label>
+        <select class="form-select" [(ngModel)]="errorLevel">
+            <option disabled>Level</option>
+            <option *ngFor="let level of correctionLevels" value={{level.key}}>{{level.title}}</option>
+        </select>
     </div>
 </div>

@@ -10,6 +10,7 @@ import { QrCodeModule } from 'ng-qrcode';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './ui/not-found/not-found.component';
 import { NgxColorsModule } from 'ngx-colors';
+import { LoginComponent } from './ui/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgxColorsModule } from 'ngx-colors';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -8,13 +8,15 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './ui/home/home.component';
 import { QrCodeModule } from 'ng-qrcode';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './ui/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

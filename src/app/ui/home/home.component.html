@@ -2,8 +2,9 @@
     <div class="qrcode">
         <h2>Preview of your QRCODE</h2>
         <qr-code #qrcode [value]='url' size="300" errorCorrectionLevel="M"></qr-code>
-
+        <button (click)="download()">Download</button>
     </div>
+
     <div class="form">
         <div class="inputcontent">
             <label>Enter or paste Website URL</label><br>

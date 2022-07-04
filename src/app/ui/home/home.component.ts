@@ -9,7 +9,9 @@ import { CorrectonLevel, CorrectonLevels } from 'src/app/models/correction';
 export class HomeComponent implements OnInit {
 
   url: string = 'https://www.google.com';
-
+  darkColor: any;
+  lightColor: any;
+  margin!:number;
   correctionLevels!: CorrectonLevel[]
   errorLevel: any = 'H';
   constructor() { }

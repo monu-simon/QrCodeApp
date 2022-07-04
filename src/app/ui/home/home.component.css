@@ -49,6 +49,10 @@ button {
     width: 100%;
 }
 
+.margin-s input {
+    box-shadow: 0 0 0 0.1em black
+}
+
 @media(max-width: 900px) {
     .content {
         flex-direction: column;

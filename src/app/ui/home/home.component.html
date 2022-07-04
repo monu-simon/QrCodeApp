@@ -1,7 +1,7 @@
 <div class="content">
     <div class="qrcode">
         <h3>Preview of your QRCODE</h3>
-        <qr-code #qrcode [value]='url' size="300" [errorCorrectionLevel]="errorLevel"></qr-code>
+        <qr-code #qrcode [value]='url' size="300" [margin]="margin" [errorCorrectionLevel]="errorLevel" [darkColor]="darkColor" [lightColor]="lightColor"></qr-code>
         <button (click)="download()" type="button" class="btn btn-primary">Download</button>
 
     </div>
@@ -16,5 +16,19 @@
             <option disabled>Level</option>
             <option *ngFor="let level of correctionLevels" value={{level.key}}>{{level.title}}</option>
         </select>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <label>Choose Dark Color</label>
+                    <ngx-colors ngx-colors-trigger [(ngModel)]="darkColor"></ngx-colors>
+                </div>
+                <div class="col-sm">
+                    <label>Choose Light Color</label>
+                    <ngx-colors ngx-colors-trigger [(ngModel)]="lightColor"></ngx-colors>
+                </div>
+            </div>
+        </div>
+        <label>Margin</label>
+        <input style="box-shadow: 0 0 0 0.1em black" type="number" class="form-control" [(ngModel)]="margin" placeholder="margin">
     </div>
 </div>

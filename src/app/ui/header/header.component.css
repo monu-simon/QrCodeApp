@@ -7,7 +7,7 @@
 
 .toggle-button {
     position: absolute;
-    top: 1.75rem;
+    top: 1.47rem;
     right: 2rem;
     display: none;
     flex-direction: column;
@@ -38,6 +38,7 @@
 
 ul {
     display: flex;
+    padding-left: 0px;
     list-style: none;
 }
 

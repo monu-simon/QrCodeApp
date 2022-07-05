@@ -9,12 +9,11 @@
     </a>
     <div class="navs">
         <ul>
-            <li><a class="nav-link-item" routerLink="/home">Use Cases</a></li>
-            <li><a class="nav-link-item" routerLink="/home">Dashboard</a></li>
+            <li><a class="nav-link-item" routerLink="/home">Home</a></li>
+            <li><a class="nav-link-item" routerLink="/dashboard">Dashboard</a></li>
             <li *ngIf="!(userName$ | async)"><a class="nav-link-item" routerLink="/register">Register</a></li>
             <li *ngIf="(userName$ | async)"><a class="nav-link-item" style="cursor: pointer" (click)="logout()">Logout</a></li>
-            <li>{{userName$ | async}} </li>
+            <li class="welcome">{{userName$ | async}} </li>
         </ul>
     </div>
-
 </div>

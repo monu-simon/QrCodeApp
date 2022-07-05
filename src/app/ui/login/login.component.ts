@@ -19,18 +19,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getCurrentUser();
+    
   }
 
   signIn() {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     this.afAuth.signInWithPopup(googleAuthProvider);
-    this.afAuth.authState.subscribe(res => {
-      if (res) {
-        this.router.navigate(['/home']);
-      }
-    })
-
+    this.userService.getCurrentUser();
   }
 
 }

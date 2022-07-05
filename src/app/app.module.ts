@@ -10,11 +10,13 @@ import { NgxColorsModule } from 'ngx-colors';
 import { environment } from 'src/environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './ui/dashboard/dashboard.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { HomeComponent } from './ui/home/home.component';
 import { LoginComponent } from './ui/login/login.component';
 import { NotFoundComponent } from './ui/not-found/not-found.component';
+import { AccessDeniedComponent } from './ui/access-denied/access-denied.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { NotFoundComponent } from './ui/not-found/not-found.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,

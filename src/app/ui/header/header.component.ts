@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  userName$!: Observable<string>;
+  name!: any;
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     const toggleButton = document.getElementsByClassName('toggle-button')[0];
@@ -16,6 +25,13 @@ export class HeaderComponent implements OnInit {
     toggleButton.addEventListener('click', () => {
       navs.classList.toggle('active')
     })
+    this.userName$ = this.userService.getUserName();
+  }
+
+  logout() {
+    this.userService.signOut();
+    this.router.navigate(['home']);
+    
   }
 
 }

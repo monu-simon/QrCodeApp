@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QrCodeModule } from 'ng-qrcode';
+import { NgxColorsModule } from 'ngx-colors';
+import { environment } from 'src/environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './ui/header/header.component';
+import { DashboardComponent } from './ui/dashboard/dashboard.component';
 import { FooterComponent } from './ui/footer/footer.component';
+import { HeaderComponent } from './ui/header/header.component';
 import { HomeComponent } from './ui/home/home.component';
-import { QrCodeModule } from 'ng-qrcode';
-import { FormsModule } from '@angular/forms';
-import { NotFoundComponent } from './ui/not-found/not-found.component';
-import { NgxColorsModule } from 'ngx-colors';
 import { LoginComponent } from './ui/login/login.component';
+import { NotFoundComponent } from './ui/not-found/not-found.component';
+import { AccessDeniedComponent } from './ui/access-denied/access-denied.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +26,9 @@ import { LoginComponent } from './ui/login/login.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +36,9 @@ import { LoginComponent } from './ui/login/login.component';
     AppRoutingModule,
     QrCodeModule,
     FormsModule,
-    NgxColorsModule
+    NgxColorsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

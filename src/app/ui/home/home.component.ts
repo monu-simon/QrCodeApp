@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CorrectonLevel, CorrectonLevels } from 'src/app/models/correction';
+import { QrData } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   url: string = 'https://www.google.com';
   userId!: string;
+  qRContent: QrData[] = [];
+  userContent: QrData[] | any;
   darkColor: any;
   lightColor: any;
   margin!: number;
@@ -27,7 +30,11 @@ export class HomeComponent implements OnInit {
     this.userService.user$.subscribe(res => {
       if (res) {
         this.userId = res.uid;
-        this.downloadButtonLabel = 'Save & Download'
+        this.downloadButtonLabel = 'Save & Download';
+        const qrcode = this.angularFireStore.collection('qrcode').doc(this.userId).valueChanges()
+        qrcode.subscribe(res => {
+          this.userContent = res;
+        })
       }
     })
     this.correctionLevels = [
@@ -63,15 +70,23 @@ export class HomeComponent implements OnInit {
   }
 
   setDataToDatabase(imageId: string) {
-    //const qrcode = this.angularFireStore.collection('qrcode').valueChanges({ idField: 'id' })
+    if (this.userContent && !this.userContent.content) {
+      this.userContent.content = [];
+      this.userContent.content.push({ data: this.url, imageData: imageId })
+    } else if (!this.userContent) {
+      this.userContent = []
+      this.userContent.content = [];
+      this.userContent.content.push({ data: this.url, imageData: imageId })
+    } else {
+      this.userContent.content.push({ data: this.url, imageData: imageId })
+
+    }
     this.angularFireStore.firestore.runTransaction(() => {
       const promise = Promise.all([
-        //this.angularFireStore.collection('qrcode').add({ asdf: 'asdf' }), --> This generates an automatic id. If we specify doc . set then we can set the id instead of automatically setting it.
-        this.angularFireStore.collection('qrcode').doc(this.userId).set({ imageData: imageId, data: this.url })
+        this.angularFireStore.collection('qrcode').doc(this.userId).set({ content: this.userContent.content })
       ])
       return promise
     })
-    //console.log(qrcode.subscribe(res => console.log(res)))
   }
 
 }

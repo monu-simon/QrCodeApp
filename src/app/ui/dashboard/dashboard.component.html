@@ -1,8 +1,8 @@
-<div class="content">
-    <h3>My Uniqcodes</h3>
-    <hr>
-    <div class="imageSpace qrcode">
-        <img>
-        <p *ngIf="imageData">This Qrcode redirects to {{imageData.data}}</p>
+<h3>My Uniqcodes</h3>
+<hr>
+<div class="content" *ngIf="userContent">
+    <div *ngFor="let content of userContent.content" class="imageSpace qrcode">
+        <img [src]="content.imageData">
+        <p *ngIf="content.data">This Qrcode redirects to {{content.data}}</p>
     </div>
 </div>

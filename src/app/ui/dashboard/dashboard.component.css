@@ -9,10 +9,18 @@
 
 .content {
     margin: 4rem 4rem;
+    display: flex;
 }
 
 @media(max-width: 900px) {
     .content {
         margin: auto auto;
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 1200px) {
+    .content {
+        flex-direction: column;
     }
 }

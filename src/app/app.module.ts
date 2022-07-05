@@ -22,7 +22,7 @@ import { AccessDeniedComponent } from './ui/access-denied/access-denied.componen
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent, 
     FooterComponent,
     HomeComponent,
     NotFoundComponent,

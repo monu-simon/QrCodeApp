@@ -1,11 +1,12 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyAFfKR8UdtYhCGXNtc2HKW419A9oKR4Qq0",
-    authDomain: "uniqcode-7c2bc.firebaseapp.com",
-    projectId: "uniqcode-7c2bc",
-    storageBucket: "uniqcode-7c2bc.appspot.com",
-    messagingSenderId: "379141014491",
-    appId: "1:379141014491:web:9e99667f960a4004dfddfe"
+    apiKey: "AIzaSyAnZ2SCFpeRf3xzmctsOdysX2kMk4s77YY",
+    authDomain: "uniqcode-34918.firebaseapp.com",
+    databaseURL: "https://uniqcode-34918-default-rtdb.firebaseio.com",
+    projectId: "uniqcode-34918",
+    storageBucket: "uniqcode-34918.appspot.com",
+    messagingSenderId: "1070647087889",
+    appId: "1:1070647087889:web:f04be4425e47a5bf3f72b0"
   }
 };

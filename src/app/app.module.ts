@@ -22,7 +22,7 @@ import { AccessDeniedComponent } from './ui/access-denied/access-denied.componen
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent, 
+    HeaderComponent,
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
@@ -37,7 +37,8 @@ import { AccessDeniedComponent } from './ui/access-denied/access-denied.componen
     QrCodeModule,
     FormsModule,
     NgxColorsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     AngularFireAuthModule,
   ],
   providers: [],

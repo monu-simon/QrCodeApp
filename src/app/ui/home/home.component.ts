@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CorrectonLevel, CorrectonLevels } from 'src/app/models/correction';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +11,23 @@ import { CorrectonLevel, CorrectonLevels } from 'src/app/models/correction';
 export class HomeComponent implements OnInit {
 
   url: string = 'https://www.google.com';
+  userId!: string;
   darkColor: any;
   lightColor: any;
-  margin!:number;
+  margin!: number;
   correctionLevels!: CorrectonLevel[]
   errorLevel: any = 'H';
-  constructor() { }
+  constructor(
+    private angularFireStore: AngularFirestore,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
+    this.userService.user$.subscribe(res => {
+      if (res) {
+        this.userId = res.uid;
+      }
+    })
     this.correctionLevels = [
       {
         title: 'LOW',
@@ -44,6 +55,21 @@ export class HomeComponent implements OnInit {
     link.download = "my-qrcode.png";
     link.href = image;
     link.click();
+    if (this.userId) {
+      this.setDataToDatabase(image);
+    }
+  }
+
+  setDataToDatabase(imageId: string) {
+    //const qrcode = this.angularFireStore.collection('qrcode').valueChanges({ idField: 'id' })
+    this.angularFireStore.firestore.runTransaction(() => {
+      const promise = Promise.all([
+        //this.angularFireStore.collection('qrcode').add({ asdf: 'asdf' }), --> This generates an automatic id. If we specify doc . set then we can set the id instead of automatically setting it.
+        this.angularFireStore.collection('qrcode').doc(this.userId).set({ imageData: imageId, data: this.url })
+      ])
+      return promise
+    })
+    //console.log(qrcode.subscribe(res => console.log(res)))
   }
 
 }

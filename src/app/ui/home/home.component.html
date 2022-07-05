@@ -2,7 +2,7 @@
     <div class="qrcode">
         <h3>Preview of your QRCODE</h3>
         <qr-code #qrcode [value]='url' size="300" [margin]="margin" [errorCorrectionLevel]="errorLevel" [darkColor]="darkColor" [lightColor]="lightColor"></qr-code>
-        <button (click)="download()" type="button" class="btn btn-primary">Download</button>
+        <button (click)="download()" type="button" class="btn btn-primary">{{downloadButtonLabel}}</button>
 
     </div>
 
@@ -29,6 +29,6 @@
             </div>
         </div>
         <label>Margin</label>
-        <input style="box-shadow: 0 0 0 0.1em black" type="number" class="form-control" [(ngModel)]="margin" placeholder="margin">
+        <input style="box-shadow: 0 0 0 0.1em black" type="number" class="form-control" [(ngModel)]="margin" placeholder="margin(number)">
     </div>
 </div>

@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   margin!: number;
   correctionLevels!: CorrectonLevel[]
   errorLevel: any = 'H';
+  downloadButtonLabel: string = 'Download';
   constructor(
     private angularFireStore: AngularFirestore,
     private userService: UserService
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.userService.user$.subscribe(res => {
       if (res) {
         this.userId = res.uid;
+        this.downloadButtonLabel = 'Save & Download'
       }
     })
     this.correctionLevels = [

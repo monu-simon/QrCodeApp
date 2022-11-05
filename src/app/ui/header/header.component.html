@@ -1,6 +1,6 @@
 <div class="container">
     <div class="app-title">
-        UNIQCODE
+        {{'uniqcode' | translate}}
     </div>
     <a class="toggle-button">
         <span class="bar"></span>
@@ -9,9 +9,16 @@
     </a>
     <div class="navs">
         <ul>
-            <li><a class="nav-link-item" routerLink="/home">Home</a></li>
-            <li><a class="nav-link-item" routerLink="/dashboard">Dashboard</a></li>
-            <li *ngIf="!(userName$ | async)"><a class="nav-link-item" routerLink="/register">Register</a></li>
+            <li><a class="nav-link-item" routerLink="/home">{{'home' | translate}}</a></li>
+            <li><a class="nav-link-item" routerLink="/dashboard">{{'dashboard' | translate}}</a></li>
+            <li *ngIf="!(userName$ | async)"><a class="nav-link-item" routerLink="/register">{{'register' | translate}}</a></li>
+            <li>
+                <select class="form-select" (change)="selectLanguage($event)">
+                    <!-- <option disabled>Language</option> -->
+                    <option value="en-IN">English</option>
+                    <option value="ml-IN">Malayalam</option>
+                </select>
+            </li>
             <li *ngIf="(userName$ | async)"><a class="nav-link-item" style="cursor: pointer" (click)="logout()">Logout</a></li>
             <li class="welcome">{{userName$ | async}} </li>
         </ul>

@@ -17,6 +17,13 @@ import { HomeComponent } from './ui/home/home.component';
 import { LoginComponent } from './ui/login/login.component';
 import { NotFoundComponent } from './ui/not-found/not-found.component';
 import { AccessDeniedComponent } from './ui/access-denied/access-denied.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/','.json')
+}
 
 
 @NgModule({
@@ -32,6 +39,15 @@ import { AccessDeniedComponent } from './ui/access-denied/access-denied.componen
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en-IN',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     BrowserAnimationsModule,
     AppRoutingModule,
     QrCodeModule,

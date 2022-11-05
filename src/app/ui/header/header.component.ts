@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { StateService } from 'src/app/services/state.service';
 import { UserService } from 'src/app/services/user.service';
+import {TranslateService} from '@ngx-translate/core'
+
 
 @Component({
   selector: 'app-header',
@@ -15,6 +18,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private translate: TranslateService,
+    private stateService: StateService,
     private router: Router
   ) { }
 
@@ -32,6 +37,14 @@ export class HeaderComponent implements OnInit {
     this.userService.signOut();
     this.router.navigate(['home']);
     
+  }
+
+  selectLanguage(e:any) {
+    console.log(e.target.value)
+    let lan = e.target.value
+    //this.translate.use(lan)
+    this.stateService.setLanguage(lan);
+   
   }
 
 }

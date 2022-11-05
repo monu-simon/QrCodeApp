@@ -1,0 +1,20 @@
+{
+    "uniqcode": "UNIQCODE",
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "register": "Register",
+    "preview": "Preview of your Qrcode",
+    "downloadButtonLabel": "Download",
+    "address": "Address",
+    "contact": "Contact Me",
+    "follow": "follow Me",
+    "house": "Maliekal House, Annamanada PO,",
+    "district": "Thrissur, Kerala",
+    "country": "India",
+    "url": "Enter or paste Website URL",
+    "error": "Error Correction Level",
+    "dark": "Choose Dark Color",
+    "light": "Choose Light Color",
+    "margin": "Margin",
+    "create": "Create"
+}

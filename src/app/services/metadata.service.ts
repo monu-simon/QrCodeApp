@@ -29,6 +29,7 @@ export class MetadataService {
   saveBrowserDetails(data: string) {
     return this.fireStore.collection('bowserName').add({
       ipAddress: data,
+      os: navigator.platform,
       timeStamp: new Date()
     })
   }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -20,9 +20,17 @@ import { AccessDeniedComponent } from './ui/access-denied/access-denied.componen
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MetadataService } from './services/metadata.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/','.json')
+}
+
+export function initializeApp(ipAddress: MetadataService) {
+  return () => {
+    console.log(ipAddress.getBrowserName())
+    return ipAddress.saveBrowserDetails(ipAddress.getBrowserName())
+  }
 }
 
 
@@ -57,7 +65,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [
+    MetadataService,{
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [MetadataService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
